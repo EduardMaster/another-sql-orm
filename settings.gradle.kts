@@ -1,1 +1,1 @@
-rootProject.name = "sql_orm"
+rootProject.name = "AutoSQL"
