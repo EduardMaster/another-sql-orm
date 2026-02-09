@@ -1,19 +1,11 @@
 plugins {
     java
-    kotlin("jvm") version "2.3.0"
+    kotlin("jvm") version "2.1.10"
     `maven-publish`
 }
 
 group = "br.com.eduard"
-version = "1.0"
-
-java.sourceCompatibility = JavaVersion.VERSION_HIGHER
-tasks {
-    compileJava{
-        // options.encoding = "UTF-8"
-    }
-    // compileKotlin {    kotlinOptions.jvmTarget = "1.8"}
-}
+version = "1.0.0"
 
 publishing {
     publications {
@@ -26,13 +18,23 @@ publishing {
     }
 }
 
+kotlin { jvmToolchain(21)}
+
 repositories {
     mavenCentral()
     mavenLocal()
     google();
+    maven("https://jitpack.io")
 }
 
 dependencies {
     compileOnly(kotlin("stdlib"))
     implementation("com.google.code.gson:gson:2.9.1")
+    implementation("com.mysql:mysql-connector-j:9.3.0")
+    implementation("com.github.EduardMaster:java-utils:1.0.0")
+    testImplementation(kotlin("test"))
+}
+
+tasks.test {
+   useJUnitPlatform() // Garante que o Gradle saiba como rodar os testes
 }

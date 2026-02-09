@@ -1,0 +1,24 @@
+package br.com.eduard.database.annotations;
+
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+/**
+ * Customize all Information of the Table
+ */
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface TableData {
+    String name() default "";
+    int size() default 100;
+    boolean unique() default false;
+    boolean nullable() default false;
+    String defaultValue() default "";
+    String sqlType() default "";
+    boolean reference() default false;
+    boolean primary() default false;
+    boolean json() default false;
+}

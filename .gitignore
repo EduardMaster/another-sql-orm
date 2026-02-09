@@ -1,6 +1,7 @@
 .idea
 build
 bin
+*.env
 .gradle
 
 *.class
